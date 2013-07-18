@@ -1,0 +1,4 @@
+<constructor >
+	<menu id="sidebar" file="menu.html" parent="#row-f" class="sidebar main span2"></menu>
+	<main id="main" file="main.html" parent="#row-f" class="main-content main span10"></main>
+</constructor>

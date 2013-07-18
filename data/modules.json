@@ -1,0 +1,48 @@
+{
+	"groups": {
+		"use":{
+			"dashboard":"",
+			"statistics":"",
+			"activities":""
+			},
+		"manage":{
+			"categories":"",
+			"preferences":""
+		}
+	},
+	"mainStructure":{
+		"tables":{
+			"wallets": {
+				"name":"wallets",
+				"keyPath":"idWallet",
+				"indexes":{
+					"name": {"title":"by_name", "column":"name", "properties":{"unique":true}}
+				},
+				"columns":{
+					"idWallet":1,
+					"name":"",
+					"description":"",
+					"dateCreated":{}
+				}
+			}
+		}
+	},
+	"walletStructure":{
+		"incomes":{
+			"keyPath":"idIncome",
+			"columns":{
+				"idIncome":1,
+				"amount":0.0,
+				"date":{}
+			}
+		},
+		"expenses":{
+			"keyPath":"idExpense",
+			"columns":{
+				"idIncome":1,
+				"amount":0.0,
+				"date":{}
+			}
+		}
+	}
+}

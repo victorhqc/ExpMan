@@ -1,0 +1,16 @@
+<content>
+	<dom>
+		<use>Usar</use>
+		<dashboard>Tablero</dashboard>
+		<statistics>Estadísticas</statistics>
+		<activities>Actividades</activities>
+		<manage>Administrar</manage>
+		<categories>Categorias</categories>
+		<preferences>Preferencias</preferences>
+		<main-title>Inicio </main-title>
+		<main-subtitle>Elije una cartera para comenzar</main-subtitle>
+		<new-wallet>Nueva cartera</new-wallet>
+		<wallet-description>Agrega una para empezar a reportar tus gastos.</wallet-description>
+		<new-btn-wallet> Crear</new-btn-wallet>
+	</dom>
+</content>
