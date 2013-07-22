@@ -1,14 +1,14 @@
 <content>
 	<dom>
-		<title>Categorias </title>
-		<main-description>Configura los tipos de ingresos y egresos</main-description>
-		<expenses>Gastos</expenses>
-		<incomes>Ingresos</incomes>
-		<new-expense>Nuevo gasto</new-expense>
-		<new-income>Nuevo ingreso</new-income>
+		<title>Categories </title>
+		<main-description>Configure the income and expense types</main-description>
+		<expenses>Expenses</expenses>
+		<incomes>Incomes</incomes>
+		<new-expense>New expense</new-expense>
+		<new-income>New income</new-income>
 	</dom>
-	<create-title>Registra una nueva categoría</create-title>
-	<create-description>Son usadas para poder registrar gastos o ingresos dentro de la plataforma.</create-description>
-	<btn-ok>Crear</btn-ok>
-	<input-name>Nombre</input-name>
+	<create-title>Register a new categorie</create-title>
+	<create-description>They are used for adding new expenses or incomes in the platform.</create-description>
+	<btn-ok>Create</btn-ok>
+	<input-name>Name</input-name>
 </content>

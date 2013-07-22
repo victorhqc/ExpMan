@@ -1,0 +1,22 @@
+<content>
+	<dom>
+		<use>Use</use>
+		<dashboard>Dashboard</dashboard>
+		<statistics>Statistics</statistics>
+		<activities>Activities</activities>
+		<manage>Manage</manage>
+		<categories>Categories</categories>
+		<preferences>Preferences</preferences>
+		<main-title>Home </main-title>
+		<main-subtitle>Choose a wallet for start</main-subtitle>
+		<new-wallet>New wallet</new-wallet>
+		<wallet-description>Add a new one to start reporting your expenses.</wallet-description>
+		<new-btn-wallet> Create</new-btn-wallet>
+	</dom>
+	<create-title>Create new wallet</create-title>
+	<create-description>Each wallet can save different incomes and expenses, you can create a wallet for your daily use, and other for a trip or some personal project you have in mind :)</create-description>
+	<create-name>Name</create-name>
+	<create-name-placeholder>Write a name...</create-name-placeholder>
+	<label-description>Descripction</label-description>
+	<btn-ok>Create</btn-ok>
+</content>
