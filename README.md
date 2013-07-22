@@ -1,4 +1,4 @@
 ExpMan
 ======
 
-HTML5 Expense manager
+HTML5 Expense manager.
