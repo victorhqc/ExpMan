@@ -2,3 +2,22 @@
 	max-height: 75%;
 	overflow: auto;
 }
+
+#wallet-container {
+	width: 80%;
+}
+
+.wallet {
+	min-height: 233px;
+	position: relative;
+	float: left;
+}
+
+.wallet:hover .img-wallet {
+	background-position: 0 -8px;
+	-webkit-transition: background-position 0.2s ease-in-out;
+	-moz-transition: background-position 0.2s ease-in-out;
+	-ms-transition: background-position 0.2s ease-in-out;
+	-o-transition: background-position 0.2s ease-in-out;
+	transition: background-position 0.2s ease-in-out;
+}

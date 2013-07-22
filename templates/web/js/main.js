@@ -1,10 +1,13 @@
 (function(){
 	"use strict";
-	buildMenu(App._data.groups);
 
-	renderWallets();
+	var init = function(){
+		this.buildMenu(App._data.groups);
+		this.menuValidation();
+		this.renderWallets();
+	};
 
-	function buildMenu(groups){
+	init.prototype.buildMenu = function(groups){
 		var id =  Template.template.menu.getId();
 		var menu = document.getElementById(id);
 
@@ -13,39 +16,47 @@
 
 		//Building categories
 		for(var g in groups){
+			var ul = document.createElement('ul');
+			ul.className = 'nav nav-list';
+			ul.id = 'sidebarMenu';
 			if(groups.hasOwnProperty(g)){
-				var title = document.createElement('h4');
-				title.setAttribute('data-ltag', g);
-				menu.appendChild(title);
-
 				//Build modules
-				var ul = document.createElement('ul');
-				ul.id = 'sidebarMenu';
+
+				var title = document.createElement('li');
+				title.className = 'nav-header';
+				title.setAttribute('data-ltag', g);
+				ul.appendChild(title);
+
 				for(var gm in groups[g]){
 					if(groups[g].hasOwnProperty(gm)){
 						var module = document.createElement('li');
-						module.setAttribute('data-ltag', gm);
-						module.setAttribute('data-module', gm);
+						var a = document.createElement('a');
+						a.href = '#';
+						a.setAttribute('data-group', g);
+						a.setAttribute('data-ltag', gm);
+						a.setAttribute('data-module', gm);
+						module.appendChild(a);
 
-						module.addEventListener('click', function(){
-							this.setAttribute('disabled', 'disabled');
-							var elms = menu.getElementsByTagName('li');
-							addClass(this, 'clicked');
-							for(var i = 0, len = elms.length; i < len; i++){
-								if(elms[i] !== this){
-									removeClass(elms[i], 'clicked');
+						a.addEventListener('click', function(){
+							if(hasClass(this, 'muted') === null){
+								var elms = menu.getElementsByTagName('a');
+								addClass(this.parentNode, 'active');
+								for(var i = 0, len = elms.length; i < len; i++){
+									if(elms[i] !== this){
+										removeClass(elms[i].parentNode, 'active');
+									}
 								}
-							}
 
-							var mod = this.getAttribute('data-module');
-							App.getModule(mod);
-							var js = {
-								'div_id':main
-							};
-							var This = this;
-							App.current.init(js, function(){
-								This.removeAttribute('disabled');
-							});
+								var mod = this.getAttribute('data-module');
+								App.getModule(mod);
+								var js = {
+									'div_id':main
+								};
+								var This = this;
+								App.current.init(js, function(){
+
+								});
+							}
 						})
 
 						ul.appendChild(module);
@@ -56,32 +67,61 @@
 		}
 	}
 
+	init.prototype.menuValidation = function(){
+		//Only when a walet is selected the main buttons will be active.
+		var navs = document.querySelectorAll('#sidebarMenu a[data-group="use"]');
+		var block = false;
+		if(App.selectedWallet === undefined){
+			//Block menu
+			block = true;
+		}
+
+		for(var i = 0, len = navs.length; i < len; i++){
+			var nav = navs[i];
+			if(block === true){
+				addClass(nav, 'muted');
+			}else{
+				removeClass(nav, 'muted');
+			}
+		}
+	}
+
 	//Creates the DOM for wallets
-	function renderWallets(){
+	init.prototype.renderWallets = function(){
 		var wallets = App.wallets;
 
-		var wallet = newBlankWallet();
+		var wallet = this.newBlankWallet();
 
 		for(var i = 0, len = wallets.length; i < len; i++){
 			var w = wallets[i];
-			renderWallet(w);
+			this.renderWallet(w);
 		}
 
 		//Add text to the "new-wallet"
 		App.language.translate();
 	}
 
-	function renderWallet(d){
+	init.prototype.renderWallet = function(d){
 		d.container = '#wallet-container';
+		var t = this;
 		d.callback = function(wallet, btn){
 			App.selectedWallet = wallet;
+			if(App._wallet !== undefined){
+				App._wallet.close();
+			}
+			var request = window.indexedDB.open(wallet.name);
+			request.onsuccess = function(event) {
+				App._wallet = request.result;
+			};
+			t.menuValidation();
 		};
 		var wallet = new Wallet(d);
 	}
 
-	function newBlankWallet(){
+	init.prototype.newBlankWallet = function(){
 		//Blank wallet
-		var j = {container:'#wallet-container', callback:function(wallet){
+		var This = this;
+		var j = {container:'#wallet-container', icon:'icon-white icon-plus', buttonClass:'btn btn-primary', callback:function(wallet){
 			var title = App.language.getMainText('create-title');
 			var description = App.language.getMainText('create-description');
 			var jm = {title:title, message:description, createHelper: function(modal){
@@ -117,7 +157,7 @@
 					btnok.addEventListener('click', function(){
 						var js = {name: inp.value, description:textarea.value};
 						var data = {modal: modal, wallet:wallet, data:js};
-						createWallet(data);
+						This.createWallet(data);
 					});
 				});
 			}};
@@ -128,7 +168,7 @@
 		return addWallet;
 	}
 
-	function createWallet(d){
+	init.prototype.createWallet = function(d){
 		var walletStructure = App._data.walletStructure;
 		walletStructure.name = d.data.name;
 		var today = new Date();
@@ -142,5 +182,7 @@
 			});
 		});
 	}
+
+	new init();
 
 })();

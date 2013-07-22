@@ -130,7 +130,6 @@
 	}
 
 	init.prototype.fillCategories = function(ul, act){
-		console.log('incomes', act);
 		ul.innerHTML = '';
 		for(var i = 0, len = act.length; i < len; i++){
 			var a = act[i];
