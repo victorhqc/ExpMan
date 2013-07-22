@@ -13,4 +13,10 @@
 		<wallet-description>Agrega una para empezar a reportar tus gastos.</wallet-description>
 		<new-btn-wallet> Crear</new-btn-wallet>
 	</dom>
+	<create-title>Crear nueva cartera</create-title>
+	<create-description>Cada cartera puede almacenar gastos e ingresos diferentes, puedes crear una cartera para tu vida diaria, otra para un viaje o algún proyecto personal que tengas en mente :)</create-description>
+	<create-name>Nombre</create-name>
+	<create-name-placeholder>Escribe un nombre...</create-name-placeholder>
+	<label-description>Descripción</label-description>
+	<btn-ok>Crear</btn-ok>
 </content>

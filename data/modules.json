@@ -24,24 +24,53 @@
 					"description":"",
 					"dateCreated":{}
 				}
+			},
+			"types": {
+				"name": "types",
+				"keyPath": "idType",
+				"indexes": {
+					"name": {"title":"by_name", "column":"name", "properties":{"unique":true}}
+				},
+				"column": {
+					"idType":1,
+					"name":""
+				}
+			},
+			"categories": {
+				"name": "categories",
+				"keyPath": "idCategory",
+				"indexes": {
+					"name": {"title":"by_name", "column":"name", "properties":{"unique":true}},
+					"type": {"title":"by_type", "column":"idType", "properties":{}}
+				},
+				"column": {
+					"idCategory":1,
+					"idType":1,
+					"name":""
+				}
 			}
+		},
+		"data": {
+			"types":[
+				{"name":"Expense"},
+				{"name":"Income"}
+			]
 		}
 	},
 	"walletStructure":{
-		"incomes":{
-			"keyPath":"idIncome",
-			"columns":{
-				"idIncome":1,
-				"amount":0.0,
-				"date":{}
-			}
-		},
-		"expenses":{
-			"keyPath":"idExpense",
-			"columns":{
-				"idIncome":1,
-				"amount":0.0,
-				"date":{}
+		"tables":{
+			"activities": {
+				"name":"activities",
+				"keyPath": "idActivity",
+				"indexes": {
+					"idCategory": {"title":"by_category", "column":"idCategory", "properties":{}}
+					},
+				"columns": {
+					"idActivity":1,
+					"idCategory":1,
+					"amount":0.0,
+					"date":{}
+				}
 			}
 		}
 	}
