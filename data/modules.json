@@ -63,13 +63,16 @@
 				"name":"activities",
 				"keyPath": "idActivity",
 				"indexes": {
-					"idCategory": {"title":"by_category", "column":"idCategory", "properties":{}}
+					"idCategory": {"title":"by_category", "column":"idCategory", "properties":{}},
+					"date": {"title":"by_date", "column":"date", "properties":{}}
 					},
 				"columns": {
 					"idActivity":1,
 					"idCategory":1,
 					"amount":0.0,
-					"date":{}
+					"description":"",
+					"date":"",
+					"time":{}
 				}
 			}
 		}
