@@ -1,0 +1,48 @@
+<div class="md-overlay"></div>
+
+<div class="page-header">
+	<h2><span data-ltag="title"></span><small data-ltag="main-description"></small></h2>
+</div>
+<div class="row">
+	<div id="registerContainer" class="col-sm-11">
+		<div class="row-fluid">
+			<div class="col-sm-4 col-md-3">
+				<div class="row">
+					<button data-type="income" class="main-btn btn btn-large btn-success col-xs-12">
+						<span data-ltag="btn-income"></span>
+					</button>
+				</div><br>
+				<div class="row">
+					<button data-type="expense" class="main-btn btn col-xs-12">
+						<span data-ltag="btn-expense"></span>
+					</button>
+				</div>
+			</div>
+			<div class="col-sm-8 col-md-9">
+				<div id="activity-data">
+					<h4 id="activity-title"></h4>
+					<form class="form-horizontal">
+						<div class="form-group">
+							<label for="inputAmount" class="col-sm-2 control-label" data-ltag="amount"></label>
+							<div class="col-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon" data-ltag="money"></span>
+									<input type="text" id="inputAmount" class="form-control" placeholder="0.00" required>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="inputDescription" data-ltag="description"></label>
+							<div class="col-sm-10">
+								<textarea class="form-control" id="inputDescription"></textarea>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div id="tableContainer" class="col-sm-11"></div>
+</div>

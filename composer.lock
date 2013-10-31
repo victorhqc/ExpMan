@@ -1,0 +1,98 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+    ],
+    "hash": "946539b052a6ed201170be8d79c28697",
+    "packages": [
+        {
+            "name": "twitter/bootstrap",
+            "version": "v3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twbs/bootstrap.git",
+                "reference": "e8a1df5f060bf7e6631554648e0abde150aedbe4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/e8a1df5f060bf7e6631554648e0abde150aedbe4",
+                "reference": "e8a1df5f060bf7e6631554648e0abde150aedbe4",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "sugeng tigefa",
+                    "email": "tigefa@gmail.com"
+                },
+                {
+                    "name": "Jacob Thornton",
+                    "email": "jacobthornton@gmail.com"
+                }
+            ],
+            "description": "Sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.",
+            "homepage": "http://getbootstrap.com",
+            "keywords": [
+                "bootstrap",
+                "css"
+            ],
+            "time": "2013-08-19 21:18:20"
+        },
+        {
+            "name": "uvicate/webapp",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/uvicate/WebApp.git",
+                "reference": "a403c0083f12d0ce2114058f7124934c46f3bb80"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/uvicate/WebApp/zipball/a403c0083f12d0ce2114058f7124934c46f3bb80",
+                "reference": "a403c0083f12d0ce2114058f7124934c46f3bb80",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Victor Quiroz",
+                    "email": "victorhqc@gmail.com",
+                    "homepage": "http://victorhqc.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Creating and manage Ajax-Translatable Applications",
+            "homepage": "https://github.com/uvicate/WebApp",
+            "keywords": [
+                "ajax",
+                "translate",
+                "webapp"
+            ],
+            "time": "2013-10-30 16:51:49"
+        }
+    ],
+    "packages-dev": [
+
+    ],
+    "aliases": [
+
+    ],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "uvicate/webapp": 20
+    },
+    "platform": [
+
+    ],
+    "platform-dev": [
+
+    ]
+}

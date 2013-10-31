@@ -1,0 +1,78 @@
+{
+	"modules":{
+		"wallets": "",
+		"activities": "", 
+		"categories": "", 
+		"dashboard": "", 
+		"preferences": "", 
+		"statistics": ""
+	},
+	"url": "modules/",
+	"mainStructure":{
+		"tables":{
+			"wallets": {
+				"name":"wallets",
+				"keyPath":"idWallet",
+				"indexes":{
+					"name": {"title":"by_name", "column":"name", "properties":{"unique":true}}
+				},
+				"columns":{
+					"idWallet":1,
+					"name":"",
+					"description":"",
+					"dateCreated":{}
+				}
+			},
+			"types": {
+				"name": "types",
+				"keyPath": "idType",
+				"indexes": {
+					"name": {"title":"by_name", "column":"name", "properties":{"unique":true}}
+				},
+				"column": {
+					"idType":1,
+					"name":""
+				}
+			},
+			"categories": {
+				"name": "categories",
+				"keyPath": "idCategory",
+				"indexes": {
+					"name": {"title":"by_name", "column":"name", "properties":{"unique":true}},
+					"type": {"title":"by_type", "column":"idType", "properties":{}}
+				},
+				"column": {
+					"idCategory":1,
+					"idType":1,
+					"name":""
+				}
+			}
+		},
+		"data": {
+			"types":[
+				{"name":"Expense"},
+				{"name":"Income"}
+			]
+		}
+	},
+	"walletStructure":{
+		"tables":{
+			"activities": {
+				"name":"activities",
+				"keyPath": "idActivity",
+				"indexes": {
+					"idCategory": {"title":"by_category", "column":"idCategory", "properties":{}},
+					"date": {"title":"by_date", "column":"date", "properties":{}}
+					},
+				"columns": {
+					"idActivity":1,
+					"idCategory":1,
+					"amount":0.0,
+					"description":"",
+					"date":"",
+					"time":{}
+				}
+			}
+		}
+	}
+}

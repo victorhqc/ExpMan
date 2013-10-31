@@ -1,0 +1,6 @@
+{
+	"require": {
+		"uvicate/webapp": "dev-master",
+		"twitter/bootstrap": "v3.0.0"
+	}
+}

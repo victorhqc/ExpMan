@@ -1,0 +1,7 @@
+<content>
+	<dom>
+		<create-name>Nombre</create-name>
+		<create-name-placeholder></create-name-placeholder>
+		<label-description>Descripción</label-description>
+	</dom>
+</content>

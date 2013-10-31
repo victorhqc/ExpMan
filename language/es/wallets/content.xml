@@ -1,0 +1,13 @@
+<content>
+	<dom>
+		<create-title>Crear Billetera</create-title>
+		<create-description>Una nueva billetera puede ser útil para algún viaje, una tarjeta de crédito, o alguna otra cosa :)</create-description>
+
+		<new-wallet>Nueva billetera</new-wallet>
+		<wallet-description>Comienza ya</wallet-description>
+		<new-btn-wallet>Agregar </new-btn-wallet>
+		<btn-ok>Guardar </btn-ok>
+
+		<choose-wallet>Elegir</choose-wallet>
+	</dom>
+</content>

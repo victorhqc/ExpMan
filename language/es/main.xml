@@ -1,22 +1,10 @@
 <content>
 	<dom>
-		<use>Usar</use>
-		<dashboard>Tablero</dashboard>
-		<statistics>Estadísticas</statistics>
+		<wallets>Billeteras</wallets>
 		<activities>Actividades</activities>
-		<manage>Administrar</manage>
-		<categories>Categorias</categories>
+		<categories>Categorías</categories>
+		<dashboard>Tablero</dashboard>
 		<preferences>Preferencias</preferences>
-		<main-title>Inicio </main-title>
-		<main-subtitle>Elije una cartera para comenzar</main-subtitle>
-		<new-wallet>Nueva cartera</new-wallet>
-		<wallet-description>Agrega una para empezar a reportar tus gastos.</wallet-description>
-		<new-btn-wallet> Crear</new-btn-wallet>
+		<statistics>Estadísticas</statistics>
 	</dom>
-	<create-title>Crear nueva cartera</create-title>
-	<create-description>Cada cartera puede almacenar gastos e ingresos diferentes, puedes crear una cartera para tu vida diaria, otra para un viaje o algún proyecto personal que tengas en mente :)</create-description>
-	<create-name>Nombre</create-name>
-	<create-name-placeholder>Escribe un nombre...</create-name-placeholder>
-	<label-description>Descripción</label-description>
-	<btn-ok>Crear</btn-ok>
 </content>

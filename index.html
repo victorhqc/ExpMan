@@ -1,32 +1,36 @@
 <!doctype html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="description" content="Expenses administrator">
-        <meta name="keywords" content="Expenses, manager, administrator, dropbox, JavaScript">
-        <meta name="author" content="Victor H Quiroz C">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Expenses manager</title>
+	<head>
+		<meta charset="utf-8">
+		<meta name="description" content="Expenses administrator">
+		<meta name="keywords" content="Expenses, manager, administrator, dropbox, JavaScript">
+		<meta name="author" content="Victor H Quiroz C">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Expenses manager</title>
 
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="lib/bootstrap/css/bootstrap-responsive.min.css">
+		<link rel="stylesheet" href="vendor/twitter/bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/style.css">
 
-        <link rel="stylesheet" href="lib/modals/modals.css">
-    </head>
-    <body>
-    	<div id="main-app" class="main container-fluid">
-		    <div id="row-f" class="main row-fluid">
-			    
-		    </div>
-	    </div>
+		<link rel="stylesheet" href="lib/modals/modal.class.css">
+	</head>
+	<body>
+		<div id="main-app" class="main">
+			<div class="row">
+				<div class="col-sm-4 col-md-3">
+					<ul id="main-menu" class="nav nav-pills nav-stacked"></ul>
+				</div>
+				<div id="container" class="col-sm-8 col-md-9"></div>
+			</div>
+		</div>
 
-        <script src="js/main.js"></script>
-        <script src="lib/OOP.js"></script>
-        <script src="lib/App.class.js"></script>
-        <script src="lib/Data.class.js"></script>
-        <script src="lib/Wallet.class.js"></script>
-        <script src="lib/classie-master/classie.js"></script>
-        <script src="lib/modals/modals.class.js"></script>
-    </body>
+		<script src="vendor/uvicate/webapp/App.class.js"></script>
+		<script src="lib/Data.class.js"></script>
+		<script src="lib/Wallet.class.js"></script>
+		<script src="lib/classie-master/classie.js"></script>
+		<script src="lib/modals/modal.class.js"></script>
+		<script src="lib/rsh.js"></script>
+		<script src="lib/jquery-2.0.3.min.js"></script>
+
+		<script src="js/main.js"></script>
+	</body>
 </html>

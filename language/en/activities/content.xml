@@ -1,13 +1,4 @@
 <content>
 	<dom>
-		<title>Activities </title>
-		<main-description>Register your incomes and expenses</main-description>
-		<btn-income>Income</btn-income>
-		<btn-expense>Expense</btn-expense>
-		<amount>Amount</amount>
-		<money>$</money>
-		<description>Description</description>
 	</dom>
-	<registering-income>Registering new income</registering-income>
-	<registering-expense>Registering new expense</registering-expense>
 </content>

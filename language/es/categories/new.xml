@@ -1,4 +1,5 @@
 <content>
 	<dom>
+		<input-name>Nombre</input-name>
 	</dom>
 </content>

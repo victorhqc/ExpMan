@@ -1,14 +1,4 @@
 <content>
 	<dom>
-		<title>Categories </title>
-		<main-description>Configure the income and expense types</main-description>
-		<expenses>Expenses</expenses>
-		<incomes>Incomes</incomes>
-		<new-expense>New expense</new-expense>
-		<new-income>New income</new-income>
 	</dom>
-	<create-title>Register a new categorie</create-title>
-	<create-description>They are used for adding new expenses or incomes in the platform.</create-description>
-	<btn-ok>Create</btn-ok>
-	<input-name>Name</input-name>
 </content>
