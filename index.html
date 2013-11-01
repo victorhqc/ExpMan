@@ -14,14 +14,24 @@
 		<link rel="stylesheet" href="lib/modals/modal.class.css">
 	</head>
 	<body>
+		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Expman</a>
+			</div>
+			<div class="row hidden-xs">
+				<div class="col-sm-5" id="chosen-wallet"></div>
+				<div class="col-sm-5" id="logged-in"></div>
+			</div>
+		</nav>
 		<div id="main-app" class="main">
 			<div class="row">
-				<div class="col-sm-4 col-md-3">
+				<div class="col-sm-3 col-md-2">
 					<ul id="main-menu" class="nav nav-pills nav-stacked"></ul>
 				</div>
-				<div id="container" class="col-sm-8 col-md-9"></div>
+				<div id="container" class="col-sm-9 col-md-10"></div>
 			</div>
 		</div>
+		<footer></footer>
 
 		<script src="vendor/uvicate/webapp/App.class.js"></script>
 		<script src="lib/Data.class.js"></script>

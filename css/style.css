@@ -4,15 +4,11 @@ html {
 
 body {
 	height: 100%;
+	padding-top: 70px;
 }
 
 #main-app {
-	background: #f9f9f9;
 	padding: 0 15px;
-}
-
-.main {
-	height: 100%;
 }
 
 #sidebar {
