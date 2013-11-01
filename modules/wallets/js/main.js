@@ -71,20 +71,16 @@
 	Module.prototype.renderWallet = function(d){
 		var t = this;
 		d.callback = function(wallet, btn){
-			App.selectedWallet = wallet;
-			if(App._wallet !== undefined){
-				App._wallet.close();
-			}
-			var request = window.indexedDB.open(wallet.name);
-			request.onsuccess = function(event) {
-				App._wallet = request.result;
-			};
-			t.menuValidation();
+			t.openWallet(wallet);
 		};
 		var wallet = new Wallet(d);
 
 		return wallet.render();
 	}
+
+	Module.prototype.openWallet = function(wallet) {
+		_App.openWallet(wallet);
+	};
 
 	Module.prototype.newBlankWallet = function(){
 		//Blank wallet
@@ -134,8 +130,11 @@
 	Module.prototype.createWallet = function(d){
 		var walletStructure = App._data.walletStructure;
 		walletStructure.name = d.data.name;
-		var today = new Date();
-		d.data.dateCreated = today;
+		
+		var date = datetoUTC();
+		d.data.date = date.date;
+		d.data.time = date.time;
+
 		var wallet = DB(walletStructure);
 		var t = this;
 		wallet.initialize(function(){

@@ -8,35 +8,50 @@
 		<div class="row-fluid">
 			<div class="col-sm-4 col-md-3">
 				<div class="row">
-					<button data-type="income" class="main-btn btn btn-large btn-success col-xs-12">
+					<button data-type="Income" class="main-btn btn btn-lg btn-primary col-xs-12">
 						<span data-ltag="btn-income"></span>
 					</button>
 				</div><br>
 				<div class="row">
-					<button data-type="expense" class="main-btn btn col-xs-12">
+					<button data-type="Expense" class="main-btn btn btn-default col-xs-12">
 						<span data-ltag="btn-expense"></span>
 					</button>
 				</div>
 			</div>
 			<div class="col-sm-8 col-md-9">
 				<div id="activity-data">
-					<h4 id="activity-title"></h4>
-					<form class="form-horizontal">
+					<h4>
+						<span data-ltag="registering"></span>
+						<span class="text-muted" id="activity-title"></span class="text-muted">
+					</h4>
+					<form id="register-category" class="form-horizontal">
 						<div class="form-group">
 							<label for="inputAmount" class="col-sm-2 control-label" data-ltag="amount"></label>
 							<div class="col-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon" data-ltag="money"></span>
-									<input type="text" id="inputAmount" class="form-control" placeholder="0.00" required>
+									<input name="amount" type="text" id="inputAmount" class="form-control" placeholder="0.00" required>
 								</div>
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-2 control-label" for="inputDescription" data-ltag="description"></label>
 							<div class="col-sm-10">
-								<textarea class="form-control" id="inputDescription"></textarea>
+								<textarea name="description" class="form-control" id="inputDescription"></textarea>
 							</div>
 						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="selectcategories" data-ltag="categories"></label>
+							<div class="col-sm-10">
+								<select id="select-categories" class="form-control"></select>
+							</div>
+						</div>
+
+						<button class="btn btn-success pull-right">
+							<span data-ltag="btn-save"></span>
+							<i class="glyphicon glyphicon-send"></i>
+						</button>
+						<div class="clearfix"></div>
 					</form>
 				</div>
 			</div>

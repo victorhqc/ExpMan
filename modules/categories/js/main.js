@@ -78,7 +78,7 @@
 		});
 	}
 
-	//Search for expenses
+	//Search for activities
 	Module.prototype.searchActivities = function(type, callback){
 		//Get the idType
 		this.getType(type, function(r){

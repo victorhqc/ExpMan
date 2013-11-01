@@ -54,17 +54,29 @@ window.dhtmlHistory.create({
 
 		this.initializeWallets(this, function(t){
 			t.searchWallets(t, function(t){
-				dhtmlHistory.initialize();
-				dhtmlHistory.addListener(t.handleHistory);
+				t.get_chosenWallet(t, function(t, chosen){
+					dhtmlHistory.initialize();
+					dhtmlHistory.addListener(t.handleHistory);
 
-				t.a.init(function(){
-					var initialModule = dhtmlHistory.getCurrentLocation();
-					if(initialModule == '/' || initialModule == ''){
-						t.loadCategory('wallets');
-					}else{
-						var c = initialModule.substr(1);
-						t.loadCategory(c);
+					var chosen_wallet = chosen;
+					for(var i = 0, len = App.wallets.length; i < len; i++){
+						var wallet = App.wallets[i];
+						if(chosen !== null && chosen.idWallet === wallet.idWallet){
+							chosen_wallet = wallet;
+						}
 					}
+
+					t.openWallet(chosen_wallet, function(){
+						t.a.init(function(){
+							var initialModule = dhtmlHistory.getCurrentLocation();
+							if(initialModule == '/' || initialModule == ''){
+								t.loadCategory('wallets');
+							}else{
+								var c = initialModule.substr(1);
+								t.loadCategory(c);
+							}
+						});
+					});
 				});
 			});
 		});
@@ -161,13 +173,55 @@ window.dhtmlHistory.create({
 	Main.prototype.searchWallets = function(obj, callback){
 		callback = (typeof callback !== 'function') ? function(){} : callback;
 
-		App.bank.search('wallets', 'by_name', '', 'all', function(wallets){
+		this.a.bank.search('wallets', 'by_name', '', 'all', function(wallets){
 			App.wallets = wallets;
 			App._wallets = [];
 			
 			callback(obj);
 		});	
 	}
+
+	Main.prototype.openWallet = function(wallet, callback) {
+		if(wallet === null){
+			callback();
+
+			return;
+		}
+		
+		if(this.a._wallet !== undefined){
+			delete this.a._wallet;
+		}
+
+		var d = datetoUTC();
+		var arr = {idWallet: wallet.idWallet};
+		arr.date = d.date;
+		arr.time = d.time;
+
+		arr = [arr];
+		
+		var request = window.indexedDB.open(wallet.name);
+		var t = this;
+
+		request.onsuccess = function(event) {
+			var wallet_db = request.result;
+
+			var mainStructure = App._data.walletStructure;
+			mainStructure.name = wallet_db.name;
+			var wallet = DB(mainStructure);
+			App._wallet = wallet;
+			App._wallet.initialize(function(){
+				App.bank.populate('chosen_wallet', arr, callback);
+			});
+		};
+	};
+
+	Main.prototype.get_chosenWallet = function(obj, callback) {
+		callback = (typeof callback === 'function') ? callback : function(){};
+
+		this.a.bank.lastID('chosen_wallet', 'by_chosen', function(d){
+			callback(obj, d);
+		});
+	};
 
 	window._App = new Main();
 })(App);
@@ -190,123 +244,14 @@ function removeClass(ele,cls) {
   }
 }
 
-//Code thanks to Gabriele Romanto
-//Modified by Victor Quiroz in Oct 2013
-//http://gabrieleromanato.name/javascript-implementing-the-fadein-and-fadeout-methods-without-jquery/
-(function() {
-	"use strict";
-	var FX = function(j){
-		j = (typeof j === 'object') ? j : {};
+function datetoUTC(date){
+	date = (typeof date === 'object' && date.hasOwnProperty('getFullYear') === true) ? date : new Date();
+	var r = {};
 
-		var defaults = {
-			duration: 500,
-			delay: 0,
-			complete: function(){},
-			easing: 'linear'
-		}
+	//Date and time
+	var utc = date.toISOString();
+	r.date = utc.match(/([0-9]{4}[-][0-9]{2}[-][0-9]{2})/gi)[0];
+	r.time = utc.match(/[0-9]{2}[:][0-9]{2}[:][0-9]{2}[.]?[0-9]{0,3}/gi)[0];
 
-		for(var k in defaults){
-			if(defaults.hasOwnProperty(k)){
-				if(j.hasOwnProperty(k) === false){
-					j[k] = defaults[k];
-				}else if(typeof j[k] !== typeof defaults[k]){
-					console.log("There's been an error receiving '"+k, j);
-					j[k] = defaults[k];
-				}
-			}
-		}
-
-		for(var k in j){
-			if(j.hasOwnProperty(k)){
-				this[k] = j[k];
-			}
-		}
-	}
-
-	FX.prototype.linear = function(progress) {
-		return progress;
-	};
-
-	FX.prototype.quadratic = function(progress) {
-		return Math.pow(progress, 2);
-	};
-
-	FX.prototype.swing = function(progress) {
-		return 0.5 - Math.cos(progress * Math.PI) / 2;
-	};
-
-	FX.prototype.circ = function(progress) {
-		return 1 - Math.sin(Math.acos(progress));
-	};
-
-	FX.prototype.back = function(progress, x) {
-		return Math.pow(progress, 2) * ((x + 1) * progress - x);
-	};
-
-	FX.prototype.bounce = function(progress) {
-		for(var a = 0, b = 1, result; 1; a += b, b /=2) {
-			if(progress >= (7 - 4 * a) / 11){
-				return -Math.pow((11 - 6 * a - 11 * progress) / 4, 2) + Math.pow(b, 2);
-			}
-		}
-	};
-
-	FX.prototype.elastic = function(progress, x) {
-		return Math.pow(2, 10 * (progress - 1)) * Math.cos(20 * Math.PI * x / 3 * progress);
-	};
-
-	FX.prototype.animate = function(options) {
-		var start = new Date;
-		var t = this;
-		var id = setInterval(function() {
-			var timePassed = new Date - start;
-			var progress = timePassed / t.duration;
-			if (progress > 1) {
-				progress = 1;
-			}
-			t.progress = progress;
-			var delta = options.delta(progress);
-			options.step(delta);
-			if (progress == 1) {
-				clearInterval(id);
-				t.complete();
-			}
-		}, this.delay || 10);
-	};
-
-	FX.prototype.fadeOut = function(element) {
-		var to = 1;
-		var t = this;
-
-		this.animate({
-			delta: function(progress) {
-				progress = t.progress;
-				return t.swing(progress);
-			},
-			complete: t.complete,
-				step: function(delta) {
-				element.style.opacity = to - delta;
-			}
-		});
-	}
-
-	FX.prototype.fadeIn = function(element) {
-		var to = 0;
-		var t = this;
-
-		this.animate({
-			delta: function(progress) {
-				progress = t.progress;
-				return t.swing(progress);
-			},
-			complete: t.complete,
-			step: function(delta) {
-				element.style.opacity = to + delta;
-			}
-		});
-	}
-
-    window.FX = function(j){
-    	return new FX(j);
-    };
-})()
+	return r;
+}

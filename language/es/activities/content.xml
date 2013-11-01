@@ -7,7 +7,11 @@
 		<amount>Cantidad</amount>
 		<money>$</money>
 		<description>Descripción</description>
+		<categories>Categorías</categories>
+
+		<registering>Registrando un nuevo </registering>
+		<btn-save>Registrar </btn-save>
 	</dom>
-	<registering-income>Registrando un nuevo ingreso</registering-income>
-	<registering-expense>Registrando un nuevo gasto</registering-expense>
+	<registering-income>Ingreso</registering-income>
+	<registering-expense>Gasto</registering-expense>
 </content>
