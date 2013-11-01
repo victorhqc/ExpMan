@@ -1,11 +1,11 @@
 {
 	"modules":{
-		"wallets": "",
-		"activities": "", 
-		"categories": "", 
+		"activities": "",
 		"dashboard": "", 
-		"preferences": "", 
-		"statistics": ""
+		"wallets": "",
+		"statistics": "",
+		"categories": "", 
+		"preferences": ""
 	},
 	"url": "modules/",
 	"mainStructure":{
@@ -20,7 +20,8 @@
 					"idWallet":1,
 					"name":"",
 					"description":"",
-					"dateCreated":{}
+					"date": "",
+					"time": {}
 				}
 			},
 			"types": {
@@ -45,6 +46,22 @@
 					"idCategory":1,
 					"idType":1,
 					"name":""
+				}
+			},
+			"chosen_wallet": {
+				"name": "chosen_wallet",
+				"keyPath": "idChosen",
+				"indexes": {
+					"chosen": {"title": "by_chosen", "column": "idChosen", "properties": {}},
+					"wallet": {"title":"by_wallet", "column": "idWallet", "properties": {}},
+					"date": {"title": "by_date", "column": "date", "properties": {}},
+					"time": {"title": "by_time", "column": "time", "properties": {}}
+				},
+				"column": {
+					"idChosen": 1,
+					"idWallet": 1,
+					"date": "",
+					"time": {}
 				}
 			}
 		},
