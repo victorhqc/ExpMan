@@ -9,5 +9,6 @@
 		<btn-ok>Guardar </btn-ok>
 
 		<choose-wallet>Elegir</choose-wallet>
+		<chosen-wallet>Elegida </chosen-wallet>
 	</dom>
 </content>

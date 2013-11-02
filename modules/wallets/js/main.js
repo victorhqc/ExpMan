@@ -44,6 +44,8 @@
 		var wallet = this.newBlankWallet();
 		container.appendChild(wallet.render());
 
+		this._walletsObj = [];
+
 		for(var i = 0, len = wallets.length; i < len; i++){
 			var w = wallets[i];
 			var wal = this.renderWallet(w);
@@ -68,17 +70,47 @@
 		this.a.current.translate();
 	}
 
-	Module.prototype.renderWallet = function(d){
+	Module.prototype.renderWallet = function(w){
 		var t = this;
-		d.callback = function(wallet, btn){
+
+		if(typeof this.a._chosen !== 'undefined' && this.a._chosen.idWallet == w.idWallet){
+			w.chosen = true;
+		}
+
+		var t = this;
+		w.callback = function(wallet, btn){
+			var tag = 'chosen-wallet';
+			var text = t.a.current.getText(tag);
+			wallet.choose(tag, text);
+
 			t.openWallet(wallet);
 		};
-		var wallet = new Wallet(d);
 
-		return wallet.render();
+		var wallet = new Wallet(w);
+		this._walletsObj.push(wallet);
+
+		var obj = wallet.render();
+
+		if(w.chosen === true){
+			var tag = 'chosen-wallet';
+			var text = this.a.current.getText(tag);
+			wallet.choose(tag, text);
+		}
+
+		return obj;
 	}
 
 	Module.prototype.openWallet = function(wallet) {
+		for(var i = 0, len = this._walletsObj.length; i < len; i++){
+			var w = this._walletsObj[i];
+
+			if(w !== wallet){
+				var tag = 'choose-wallet';
+				var text = this.a.current.getText(tag);
+				w.free(tag, text);
+			}
+		}
+
 		_App.openWallet(wallet);
 	};
 

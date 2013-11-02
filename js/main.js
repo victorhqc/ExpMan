@@ -198,6 +198,8 @@ window.dhtmlHistory.create({
 		arr.time = d.time;
 
 		arr = [arr];
+
+		App._chosen = wallet;
 		
 		var request = window.indexedDB.open(wallet.name);
 		var t = this;
