@@ -109,6 +109,7 @@
 		var d = datetoUTC();
 		values.date = d.date;
 		values.time = d.time;
+		values.datetime = d.datetime;
 
 		return values;
 	};
