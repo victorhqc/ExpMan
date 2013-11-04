@@ -29,5 +29,8 @@
 		<dateselector-label>Datos desde</dateselector-label>
 		<range-date-1>Desde</range-date-1>
 		<range-date-2>Hasta</range-date-2>
+
+		<idType-1>Egreso</idType-1>
+		<idType-2>Ingreso</idType-2>
 	</dom>
 </content>
