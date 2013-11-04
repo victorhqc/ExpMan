@@ -6,5 +6,28 @@
 		<dashboard>Tablero</dashboard>
 		<preferences>Preferencias</preferences>
 		<statistics>Estadísticas</statistics>
+
+		<day>Día</day>
+		<p-day>Días</p-day>
+		<week>Semana</week>
+		<p-week>Semanas</p-week>
+		<month>Mes</month>
+		<p-month>Meses</p-month>
+		<year>Año</year>
+		<p-year>Años</p-year>
+		<custom>Elegir fechas</custom>
+
+		<day-1>Hoy</day-1>
+		<day-2>Ayer</day-2>
+		<day-3>Hace dos días</day-3>
+		<week-1>Esta semana</week-1>
+		<week-2>Hace una semana</week-2>
+		<month-1>Este mes</month-1>
+		<month-2>El mes pasado</month-2>
+		<year-1>Este año</year-1>
+
+		<dateselector-label>Datos desde</dateselector-label>
+		<range-date-1>Desde</range-date-1>
+		<range-date-2>Hasta</range-date-2>
 	</dom>
 </content>
