@@ -73,7 +73,7 @@ window.dhtmlHistory.create({
 								t.loadCategory(t.chooseDefaultModule());
 							}else{
 								var c = initialModule.substr(1);
-								t.loadCategory(c);
+								t.loadCategory(t.chooseDefaultModule(c));
 							}
 						});
 					});
@@ -82,11 +82,14 @@ window.dhtmlHistory.create({
 		});
 	};
 
-	Main.prototype.chooseDefaultModule = function() {
-		var module = 'wallets';
-		if( typeof this.a._chosen === 'object' ) {
+	Main.prototype.chooseDefaultModule = function(module) {
+		var def = (typeof module === 'undefined')  ? true : false;
+		module = (typeof module === 'undefined') ? 'wallets' : module;
+		if( typeof this.a._chosen === 'object' && def === true) {
 			module = 'activities';
-		}
+		} else if(typeof this.a._chosen !== 'object'){
+			module = 'wallets';
+		}		
 
 		return module;
 	};
@@ -263,6 +266,7 @@ function datetoUTC(date){
 	var utc = date.toISOString();
 	r.date = utc.match(/([0-9]{4}[-][0-9]{2}[-][0-9]{2})/gi)[0];
 	r.time = utc.match(/[0-9]{2}[:][0-9]{2}[:][0-9]{2}[.]?[0-9]{0,3}/gi)[0];
+	r.datetime = new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(),  date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds());
 
 	return r;
 }
