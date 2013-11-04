@@ -70,7 +70,7 @@ window.dhtmlHistory.create({
 						t.a.init(function(){
 							var initialModule = dhtmlHistory.getCurrentLocation();
 							if(initialModule == '/' || initialModule == ''){
-								t.loadCategory('wallets');
+								t.loadCategory(t.chooseDefaultModule());
 							}else{
 								var c = initialModule.substr(1);
 								t.loadCategory(c);
@@ -82,11 +82,20 @@ window.dhtmlHistory.create({
 		});
 	};
 
+	Main.prototype.chooseDefaultModule = function() {
+		var module = 'wallets';
+		if( typeof this.a._chosen === 'object' ) {
+			module = 'activities';
+		}
+
+		return module;
+	};
+
 	Main.prototype.handleHistory = function(newLocation, historyData) {
 		var category = newLocation.substr(1);
-		m._cat = category;
-		if(typeof m.a.current === 'object'){
-			m.loadCategory(category);
+		_App._cat = category;
+		if(typeof _App.a.current === 'object'){
+			_App.loadCategory(category);
 		}
 	};
 
