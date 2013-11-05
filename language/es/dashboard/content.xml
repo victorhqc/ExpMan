@@ -1,5 +1,11 @@
 <content>
 	<dom>
 		<last-activities>Últimas actividades</last-activities>
+
+		<no>#</no>
+		<date>Fecha</date>
+		<amount>Cantidad</amount>
+		<category>Categoría</category>
+		<description>Descripción</description>
 	</dom>
 </content>

@@ -258,8 +258,21 @@ function removeClass(ele,cls) {
   }
 }
 
-function datetoUTC(date){
+function dateToObj(date){
 	date = (typeof date === 'object' && date.hasOwnProperty('getFullYear') === true) ? date : new Date();
+	var r = {};
+
+	//Date and time
+	var utc = date.toISOString();
+	r.date = utc.match(/([0-9]{4}[-][0-9]{2}[-][0-9]{2})/gi)[0];
+	r.time = utc.match(/[0-9]{2}[:][0-9]{2}[:][0-9]{2}[.]?[0-9]{0,3}/gi)[0];
+	r.datetime = date;
+
+	return r;
+}
+
+function datetoUTC(date){
+	date = (typeof date === 'object' && typeof date.getFullYear === 'function') ? date : new Date();
 	var r = {};
 
 	//Date and time
