@@ -259,13 +259,12 @@ function removeClass(ele,cls) {
 }
 
 function dateToObj(date){
-	date = (typeof date === 'object' && date.hasOwnProperty('getFullYear') === true) ? date : new Date();
+	date = (typeof date === 'object' && typeof date.getFullYear === 'function') ? date : new Date();
 	var r = {};
 
 	//Date and time
-	var utc = date.toISOString();
-	r.date = utc.match(/([0-9]{4}[-][0-9]{2}[-][0-9]{2})/gi)[0];
-	r.time = utc.match(/[0-9]{2}[:][0-9]{2}[:][0-9]{2}[.]?[0-9]{0,3}/gi)[0];
+	r.date = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+	r.time = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '.' + date.getMilliseconds();
 	r.datetime = date;
 
 	return r;
