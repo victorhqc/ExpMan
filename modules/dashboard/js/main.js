@@ -47,6 +47,7 @@
 	Module.prototype.activitiesTable = function() {
 		var table = document.getElementById('activities-table');
 		var tbody = table.getElementsByTagName('tbody')[0];
+		tbody.innerHTML =  '';
 
 		var activities = this.activities;
 		console.log('activities', activities);
